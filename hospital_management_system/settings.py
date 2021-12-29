@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'settingapp',
     'medicine',
     'hospital',
+    'employee',
     'patient',
-
 ]
 
 MIDDLEWARE = [
@@ -104,6 +104,8 @@ DATABASES = {
     }
 }
 
+# Customize Abstract User
+AUTH_USER_MODEL = 'employee.CustomUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

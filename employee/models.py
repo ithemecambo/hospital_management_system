@@ -28,13 +28,13 @@ class CustomUserManager(UserManager):
 
 
 class CustomUser(AbstractUser):
-    USER_TYPE = ((1, "HOD"), (2, "Staff"), (3, "User"))
+    USER_TYPE = ((1, "HOD"), (2, "Staff"))
     GENDER = [("M", "Male"), ("F", "Female")]
 
     username = None  # Removed username, using email instead
     email = models.EmailField(unique=True)
     user_type = models.CharField(default=1, choices=USER_TYPE, max_length=1)
-    gender = models.CharField(max_length=1, choices=GENDER)
+    gender = models.CharField(max_length=1, choices=GENDER, default='Male')
     profile_pic = models.ImageField()
     address = models.TextField()
     fcm_token = models.TextField(default="")
@@ -56,17 +56,17 @@ class Admin(models.Model):
 
 
 class Staff(models.Model):
-    staff = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+    admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.staff.last_name} {self.staff.first_name}'
+        return f'{self.admin.last_name} {self.admin.first_name}'
 
 
-class User(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.user.last_name} {self.user.first_name}'
+# class Patient(models.Model):
+#     admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return f'{self.admin.last_name} {self.admin.first_name}'
 
 
 @receiver(post_save, sender=CustomUser)
@@ -76,8 +76,8 @@ def create_user_profile(sender, instance, created, **kwargs):
             Admin.objects.create(admin=instance)
         if instance.user_type == 2:
             Staff.objects.create(admin=instance)
-        if instance.user_type == 3:
-            User.objects.create(admin=instance)
+        # if instance.user_type == 3:
+        #     Patient.objects.create(admin=instance)
 
 
 @receiver(post_save, sender=CustomUser)
@@ -86,5 +86,5 @@ def save_user_profile(sender, instance, **kwargs):
         instance.admin.save()
     if instance.user_type == 2:
         instance.staff.save()
-    if instance.user_type == 3:
-        instance.user.save()
+    # if instance.user_type == 3:
+    #     instance.patient.save()

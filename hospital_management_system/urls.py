@@ -21,17 +21,19 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hospital.urls')),
+    path('employee/', include('employee.urls')),
     path('patient/', include('patient.urls')),
     path('medicine/', include('medicine.urls')),
     path('settingapp/', include('settingapp.urls')),
     path('appointment/', include('appointment.urls')),
 
+    path('auth/', include('employee.admin_urls')),
     path('auth/', include('hospital.admin_urls')),
     path('auth/', include('medicine.admin_urls')),
     path('auth/', include('patient.admin_urls')),
     path('auth/', include('appointment.admin_urls')),
     path('auth/', include('settingapp.admin_urls')),
-    # path('auth/', include('staff.admin_urls')),
+
 ]
 
 if settings.DEBUG:
