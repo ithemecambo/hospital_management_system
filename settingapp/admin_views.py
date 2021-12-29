@@ -22,7 +22,7 @@ class InvoiceSettingsView(TemplateView):
 
 
 class NotificationSettingsView(TemplateView):
-    template_name = 'admin/settings/notification-settings.html'
+    template_name = 'admin/settings/notifications-settings.html'
 
 
 class ChangePasswordSettingsView(TemplateView):
