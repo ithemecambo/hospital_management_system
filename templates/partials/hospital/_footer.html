@@ -1,0 +1,115 @@
+{% load static %}
+
+<footer class="footer">
+    <div class="footer_top">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-6 col-lg-4">
+                    <div class="widget">
+                        <div class="footer_logo">
+                            <a href="#">
+                                <img src="{% static 'hospital/img/footer_logo.png' %}" alt="">
+                            </a>
+                        </div>
+                        <br/>
+                        <p>
+                                The Heart Care Heart Hospital have latest technology machines with experty Heart specialist doctors consectetur adipisicing elit. Distinctio vitae maiores enim ea atque? Natus iure autem cumque, quaerat distinctio pariatur velit illo hic a eos paccusamus.
+                        </p>
+                        <div class="socail_links">
+                            <ul>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/kheang-senghort-a6a150a3/" target="_blank">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://web.facebook.com/kheang.senghort.5" target="_blank">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/kheangsenghort" target="_blank">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/kheang.senghort/" target="_blank">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com/channel/UCGCzg18fbnLAOSJLmemcjig?view_as=subscriber" target="_blank">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xl-2 offset-xl-1 col-md-6 col-lg-3">
+                    <div class="widget">
+                        <h3 class="footer_title">
+                                Departments
+                        </h3>
+                        <ul>
+                            <li><a href="#">Eye Care</a></li>
+                            <li><a href="#">Skin Care</a></li>
+                            <li><a href="#">Pathology</a></li>
+                            <li><a href="#">Medicine</a></li>
+                            <li><a href="#">Dental</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-6 col-lg-2">
+                    <div class="widget">
+                        <h3 class="footer_title">
+                                Useful Links
+                        </h3>
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><a href="#">Department</a></li>
+                            <li><a href="#">Doctors</a></li>
+                            <li><a href="#">Article</a></li>
+                            <li><a href="#">Career</a></li>
+                            <li><a class="popup-with-form" href="#test-form">Appointment</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col-lg-3">
+                    <div class="widget">
+                        <h3 class="footer_title">
+                                Address
+                        </h3>
+                        <address>
+                                <ul>
+                                  <li> <span class="icon"><i class="fa fa-map-marker" style="font-size: 23px;" aria-hidden="true"></i></span> <span
+                                      class="add-text"><strong></strong> No.149, St.432, Sangkat Beoung Trabek, Khan Chamkarmorn, PP</span> </li>
+                                  <li> <span class="icon"><i class="fa fa-phone-square" style="font-size: 18px;" aria-hidden="true"></i></span> <span
+                                      class="add-text"><strong></strong><a href="tel:855189702323"> +855189702323</a></span> </li>
+                                  <li> <span class="icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> <span
+                                      class="add-text"><strong></strong><a href="mailto:senghort.rupp@gmail.com?Subject=Send%20to%20feedback" target="_blank"> info@heartcare.com</a></span> </li>
+                                  <li> <span class="icon"><i class="fa fa-clock-o" style="font-size: 20px;" aria-hidden="true"></i></span> <span
+                                      class="add-text"><strong></strong> Mon-Sat: 8:00AM-9:00PM</span> </li>
+                                </ul>
+                              </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right_text">
+        <div class="container">
+            <div class="footer_border"></div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <p class="copy_right text-center">
+                        Copyright &copy; {% now 'Y' %} All rights reserved | <i class="fa fa-heart-o" aria-hidden="true"></i> by
+                        <a href="https://colorlib.com" target="_blank">iThemecambo</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

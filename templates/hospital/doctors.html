@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+
+    <!-- expert_doctors_area_start -->
+    <div class="expert_doctors_area doctor_page">
+        <div class="container">
+            <!-- bradcam_area_start  -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: white;">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Doctors</li>
+                </ol>
+            </nav>
+            <!-- bradcam_area_end  -->
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="section_title text-center mb-55">
+                        <h3>Our Doctors</h3>
+                        <p>Esteem spirit temper too say adieus who direct esteem. <br>
+                            It esteems luckily or picture placing drawing. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for doctor in object_list %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_expert mb-40">
+                        <div class="expert_thumb">
+                            <a href="{% url 'doctor-detail' doctor.id %}">
+                                <img src="{{ doctor.picture.url }}" alt="">
+                            </a>
+                        </div>
+                        <div class="experts_name text-center">
+                            <h4>{{ doctor.name }}</h4>
+                            {% for spe in doctor.speciality.all %}
+                                <span>{{ spe.name }}</span>
+                            {% endfor %}
+                            <hr class="social-line">
+                            <ul class="team-social">
+                                <li><a class="tw" href="{{ doctor.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a class="fb" href="{{ doctor.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li><a class="insta" href="{{ doctor.instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- pagination -->
+            <nav class="blog-pagination justify-content-center d-flex">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Previous">
+                            <i class="ti-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Next">
+                            <i class="ti-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- end pagination -->
+        </div>
+    </div>
+    <!-- expert_doctors_area_end -->
+
+    <!-- Emergency_contact start -->
+    <div class="Emergency_contact">
+        <div class="conatiner-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-xl-6">
+                    <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_1 overlay_skyblue">
+                        <div class="info">
+                            <h3>For Any Emergency Contact</h3>
+                            <p>Esteem spirit temper too say adieus.</p>
+                        </div>
+                        <div class="info_button">
+                            <a href="#" class="boxed-btn3-white">+10 378 4673 467</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="single_emergency d-flex align-items-center justify-content-center emergency_bg_2 overlay_skyblue">
+                        <div class="info">
+                            <h3>Make an Online Appointment</h3>
+                            <p>Esteem spirit temper too say adieus.</p>
+                        </div>
+                        <div class="info_button">
+                            <a href="#" class="boxed-btn3-white">Make an Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Emergency_contact end -->
+
+{% endblock maincontent %}

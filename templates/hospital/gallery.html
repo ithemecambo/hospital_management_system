@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+
+    <div class="expert_doctors_area doctor_page">
+        <div class="container">
+            <!-- bradcam_area_start  -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" style="background-color: white; margin-left: -18px;">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">More[+]</li>
+                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                </ol>
+            </nav>
+            <!-- bradcam_area_end  -->
+
+            <div class="row">
+                {% for obj in object_list %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="experts_name text-left">
+                        <h5>{{ obj.title }}</h5>
+                    </div>
+                    <div class="single_expert mb-40">
+                        <div class="expert_thumb">
+                            <img src="{{ obj.image.url }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- pagination -->
+            <nav class="blog-pagination justify-content-center d-flex">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Previous">
+                            <i class="ti-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Next">
+                            <i class="ti-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- end pagination -->
+        </div>
+    </div>
+
+{% endblock maincontent %}

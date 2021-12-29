@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block maincontent %}
+
+    <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+        <!-- bradcam_area_start  -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: white;">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">More[+]</li>
+                <li class="breadcrumb-item active" aria-current="page">Career</li>
+            </ol>
+        </nav>
+        <!-- bradcam_area_end  -->
+    </div>
+
+    <!-- offers_area_start -->
+    <div class="our_department_area">
+        <div class="container" style="margin-top: -70px;">
+
+            <div class="row">
+                {% for job in object_list %}
+                <div class="col-md-6 col-lg-3">
+                    <div class="single_department">
+                        <div class="department_content">
+                            <h4><a href="{% url 'job-detail' job.id %}">{{ job.function }} ({{ job.level }})</a></h4>
+                            <br/>
+                            <ul>
+                                <li><a href="{% url 'job-detail' job.id %}"> <i class="fa fa-map-marker" style="font-size: 20px;"></i>  {{ job.get_location_display }}</a></li>
+                                <li><a href="{% url 'job-detail' job.id %}"> <i class="fa fa-calendar" style="font-size: 14px;"></i>  Closing Date: {{ job.closing_date }}</a></li>
+                            </ul>
+                            <hr class="doctor-line">
+                            <p>
+                                {{ job.job_description|truncatechars:60}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- pagination -->
+            <nav class="blog-pagination justify-content-center d-flex">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Previous">
+                            <i class="ti-angle-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link">1</a>
+                    </li>
+                    <li class="page-item active">
+                        <a href="#" class="page-link">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a href="#" class="page-link" aria-label="Next">
+                            <i class="ti-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- end pagination -->
+        </div>
+    </div>
+    <!-- offers_area_end -->
+
+{% endblock maincontent %}

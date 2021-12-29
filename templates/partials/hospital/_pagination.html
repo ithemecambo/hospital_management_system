@@ -1,0 +1,29 @@
+<nav class="blog-pagination justify-content-center d-flex">
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                <i class="ti-angle-left"></i>
+            </a>
+        </li>
+        {% endif %}
+
+        {% for page_num in paginator.page_range|slice:":10" %}
+        {% if page_obj.number == page_num %}
+        <li class="active"><a href="">{{ page_num }}</a></li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <i class="ti-angle-right"></i>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
