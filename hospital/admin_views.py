@@ -100,6 +100,18 @@ def delete_ambulance(request, pk):
     return redirect('../ambulances')
 
 
+class DoctorView(ListView):
+    template_name = 'admin/doctor/doctors.html'
+    context_object_name = 'doctors'
+    queryset = Doctor.objects.all()
+
+
+class DoctorScheduleView(ListView):
+    template_name = 'admin/hospital/doctor-schedule.html'
+    context_object_name = 'schedules'
+    queryset = Schedule.objects.all()
+
+
 class LanguageView(ListView):
     model = Language
     template_name = 'admin/hospital/languages.html'

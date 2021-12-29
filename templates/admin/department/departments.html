@@ -133,87 +133,87 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li>
-                            <a href="../dashboard/dashboard.html"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                            <a href="{% url 'dashboard' %}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
                         <li class="active">
-                            <a href="../department/departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                            <a href="{% url 'departments' %}"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
                         <li>
-                            <a href="../ambulance/ambulances.html"><i class="fa fa-bus"></i> <span>Ambulances</span></a>
+                            <a href="{% url 'ambulances' %}"><i class="fa fa-bus"></i> <span>Ambulances</span></a>
+                        </li>
+						<li>
+                            <a href="{% url 'doctors' %}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
                         <li>
-                            <a href="../doctor/doctors.html"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
+                            <a href="{% url 'doctor-schedules' %}"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedules</span></a>
                         </li>
                         <li>
-                            <a href="../hospital/doctor-schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedules</span></a>
+                            <a href="{% url 'languages' %}"><i class="fa fa-language"></i> <span>Languages</span></a>
                         </li>
                         <li>
-                            <a href="../hospital/languages.html"><i class="fa fa-language"></i> <span>Languages</span></a>
-                        </li>
-                        <li>
-                            <a href="../hospital/specialities.html"><i class="fa fa-snowflake-o"></i> <span>Specialities</span></a>
+                            <a href="{% url 'specialities' %}"><i class="fa fa-snowflake-o"></i> <span>Specialities</span></a>
                         </li>
                         <li class="menu-title"><strong>Employees</strong></li>
                         <li>
-                            <a href="../staff/staffs.html"><i class="fa fa-users"></i> <span>Staffs</span></a>
+                            <a href="{% url 'staffs' %}"><i class="fa fa-users"></i> <span>Staffs</span></a>
                         </li>
                         <li>
-                            <a href="../staff/leaves.html"><i class="fa fa-wheelchair-alt"></i> <span>Leaves</span></a>
+                            <a href="{% url 'leaves' %}"><i class="fa fa-wheelchair-alt"></i> <span>Leaves</span></a>
                         </li>
                         <li>
-                            <a href="../staff/holidays.html"><i class="fa fa-gift"></i> <span>Holidays</span></a>
+                            <a href="{% url 'holidays' %}"><i class="fa fa-gift"></i> <span>Holidays</span></a>
                         </li>
                         <li>
-                            <a href="../staff/attendance.html"><i class="fa fa-calendar-check-o"></i> <span>Attendance</span></a>
+                            <a href="{% url 'attendances' %}"><i class="fa fa-calendar-check-o"></i> <span>Attendance</span></a>
                         </li>
                         <li class="menu-title"><strong>Patients</strong></li>
                         <li>
-                            <a href="../patient/blood-type.html"><i class="fa fa-heartbeat"></i> <span>Blood Types</span></a>
+                            <a href="{% url 'blood-types' %}"><i class="fa fa-heartbeat"></i> <span>Blood Types</span></a>
                         </li>
                         <li>
-                            <a href="../patient/patients.html"><i class="fa fa-users"></i> <span>Patients</span></a>
+                            <a href="{% url 'patients' %}"><i class="fa fa-users"></i> <span>Patients</span></a>
                         </li>
                         <li class="menu-title"><strong>Medicines</strong></li>
                         <li>
-                            <a href="../medicine/categories.html"><i class="fa fa-th-large"></i> <span>Categories</span></a>
+                            <a href="{% url 'categories' %}"><i class="fa fa-th-large"></i> <span>Categories</span></a>
                         </li>
                         <li>
-                            <a href="../medicine/menufacturers.html"><i class="fa fa-university"></i> <span>Manufacturers</span></a>
+                            <a href="{% url 'manufacturers' %}"><i class="fa fa-university"></i> <span>Manufacturers</span></a>
                         </li>
                         <li>
-                            <a href="../medicine/medicine-type.html"><i class="fa fa-tag"></i> <span>Medicine Types</span></a>
+                            <a href="{% url 'medicine-types' %}"><i class="fa fa-tag"></i> <span>Medicine Types</span></a>
                         </li>
                         <li>
-                            <a href="../medicine/units.html"><i class="fa fa-tint"></i><span>Units</span></a>
+                            <a href="{% url 'units' %}"><i class="fa fa-tint"></i><span>Units</span></a>
                         </li>
                         <li>
-                            <a href="../medicine/medicines.html"><i class="fa fa-cube"></i> <span>Medicines</span></a>
+                            <a href="{% url 'medicines' %}"><i class="fa fa-cube"></i> <span>Medicines</span></a>
                         </li>
                         <li class="menu-title"><strong>Appointments</strong></li>
                         <li>
-                            <a href="../appointment/appointments.html"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
+                            <a href="{% url 'appointments' %}"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
                         <li class="menu-title"><strong>Settings</strong></li>
                         <li>
-                            <a href="../settings/company-settings.html"><i class="fa fa-building"></i> <span>Company Settings</span></a>
+                            <a href="{% url 'company-settings' %}"><i class="fa fa-building"></i> <span>Company Settings</span></a>
                         </li>
                         <li>
-                            <a href="../settings/localization.html"><i class="fa fa-clock-o"></i> <span>Localizations</span></a>
+                            <a href="{% url 'localization-settings' %}"><i class="fa fa-clock-o"></i> <span>Localizations</span></a>
                         </li>
                         <li>
-                            <a href="../settings/theme-settings.html"><i class="fa fa-picture-o"></i> <span>Theme Settings</span></a>
+                            <a href="{% url 'theme-settings' %}"><i class="fa fa-picture-o"></i> <span>Theme Settings</span></a>
                         </li>
                         <li>
-                            <a href="../settings/roles-permissions.html"><i class="fa fa-key"></i> <span>Roles & Permissions</span></a>
+                            <a href="{% url 'roles-permission-settings' %}"><i class="fa fa-key"></i> <span>Roles & Permissions</span></a>
                         </li>
                         <li>
-                            <a href="../settings/invoice-settings.html"><i class="fa fa-pencil-square-o"></i> <span>Invoice Settings</span></a>
+                            <a href="{% url 'invoice-settings' %}"><i class="fa fa-pencil-square-o"></i> <span>Invoice Settings</span></a>
                         </li>
                         <li>
-                            <a href="../settings/notifications-settings.html"><i class="fa fa-globe"></i> <span>Notifications</span></a>
+                            <a href="{% url 'notification-settings' %}"><i class="fa fa-globe"></i> <span>Notifications</span></a>
                         </li>
                         <li>
-                            <a href="../settings/change-password.html"><i class="fa fa-lock"></i> <span>Change Password</span></a>
+                            <a href="{% url 'change-password-settings' %}"><i class="fa fa-lock"></i> <span>Change Password</span></a>
                         </li>
                     </ul>
                 </div>

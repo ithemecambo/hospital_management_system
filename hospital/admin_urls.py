@@ -10,6 +10,8 @@ from .admin_views import (
     add_ambulance,
     update_ambulance,
     delete_ambulance,
+    DoctorView,
+    DoctorScheduleView
 )
 
 urlpatterns = [
@@ -21,4 +23,6 @@ urlpatterns = [
     path('add-ambulance/', add_ambulance, name='add-ambulance'),
     path('update-ambulance/<int:pk>', update_ambulance, name='update-ambulance'),
     path('delete-ambulance/<int:pk>', delete_ambulance, name='delete-ambulance'),
+    path('doctors/', DoctorView.as_view(), name='doctors'),
+    path('doctor-schedules/', DoctorScheduleView.as_view(), name='doctor-schedules'),
 ]
