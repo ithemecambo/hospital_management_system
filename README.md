@@ -2,7 +2,7 @@
 
 RMS - Medical & Hospital is a fully responsive and easy customizable template built with the Bootstrap 4+ framework, latest web technology HTML5, CSS3, MySQL and Python Django. 
 
-RMS - Medical & Hospital is compatible with on all major browsers, iPad, iPhone, Tablet, Andriod mobiles, and all other mobile devices. Especially we have both options Django Admin & Customize Admin for a complete backend
+RMS - Medical & Hospital is compatible with on all major browsers, iPad, iPhone, Tablet, Andriod mobiles, and all other mobile devices. Especially we have both options Django Admin & Customize Admin for a complete backend.
 
 ## Table of contents
 * [Features](#features)
