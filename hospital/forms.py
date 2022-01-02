@@ -49,6 +49,42 @@ class SpecialityUpdateForm(forms.ModelForm):
         fields = ['name', 'status']
 
 
+class LanguageCreateForm(forms.ModelForm):
+    class Meta:
+        model = Language
+        fields = ['name', 'country', 'code', 'dial_code', 'flag']
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if not name:
+            raise forms.ValidationError('This field is required')
+        return name
+
+    def clean_country(self):
+        country = self.cleaned_data.get('country')
+        if not country:
+            raise forms.ValidationError('This field is required')
+        return country
+
+    def clean_code(self):
+        code = self.cleaned_data.get('code')
+        if not code:
+            raise forms.ValidationError('This field is required')
+        return code
+
+    def clean_dial_code(self):
+        dial_code = self.cleaned_data.get('dial_code')
+        if not dial_code:
+            raise forms.ValidationError('This field is required')
+        return dial_code
+
+
+class LanguageUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Language
+        fields = ['name', 'country', 'code', 'dial_code', 'flag', 'status']
+
+
 class DoctorCreateForm(forms.ModelForm):
     class Meta:
         model = Doctor

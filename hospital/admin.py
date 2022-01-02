@@ -84,6 +84,7 @@ class SpecialityAdmin(admin.ModelAdmin):
 
 
 class LanguageAdmin(admin.ModelAdmin):
+    form = LanguageCreateForm
     list_display = [
         'id',
         'logo',

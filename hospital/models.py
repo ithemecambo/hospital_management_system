@@ -220,7 +220,7 @@ class Language(BaseModel):
 
     def logo(self):
         if self.flag:
-            return mark_safe('<img src="%s" style="width: 25px; height: 25px;"/>' % self.flag.url)
+            return mark_safe('<img src="%s" style="width: 25px; height: auto;"/>' % self.flag.url)
         else:
             return '__'
     logo.short_description = 'Logo'

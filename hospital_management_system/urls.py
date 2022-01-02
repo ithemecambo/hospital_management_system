@@ -34,6 +34,10 @@ urlpatterns = [
     path('auth/', include('appointment.admin_urls')),
     path('auth/', include('settingapp.admin_urls')),
 
+    # API
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/v1/', include('hospital.api.urls')),
+
 ]
 
 if settings.DEBUG:

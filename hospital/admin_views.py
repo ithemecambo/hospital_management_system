@@ -1,5 +1,7 @@
 from django.contrib import messages
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic import *
 
 from appointment.models import *
@@ -117,6 +119,54 @@ class LanguageView(ListView):
     template_name = 'admin/hospital/languages.html'
     context_object_name = 'languages'
     queryset = Language.objects.all()
+
+
+class LanguageCreateView(FormView):
+    form_class = LanguageCreateForm
+    template_name = 'admin/hospital/add-language.html'
+    success_url = '../languages'
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+        form.instance.sender = self.request.user
+        if form.is_valid():
+            form.save()
+            messages.success(self.request, 'Language Saved Success')
+            return redirect(self.success_url)
+        else:
+            return render(request, self.template_name, {'form': form})
+
+
+class LanguageUpdateView(UpdateView):
+    model = Language
+    fields = ['name', 'country', 'code', 'dial_code', 'flag', 'status']
+    success_url = '../languages'
+
+
+def update_language(request, pk):
+    queryset = Language.objects.get(id=pk)
+    form = LanguageUpdateForm(instance=queryset)
+    if request.method == 'POST':
+        form = LanguageUpdateForm(request.POST, request.FILES, instance=queryset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Language Updated Success')
+            return redirect('../languages')
+    context = {
+        'form': form
+    }
+    return render(request, 'admin/hospital/add-language.html', context)
+
+
+def delete_language(request, pk):
+    queryset = Language.objects.get(id=pk)
+    queryset.delete()
+    messages.success(request, 'Language Deleted Success')
+    return redirect('../languages')
 
 
 class SpecialityView(ListView):
