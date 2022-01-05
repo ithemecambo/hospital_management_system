@@ -55,8 +55,10 @@ class Localization(BaseModel):
 
 class ThemeSetting(BaseModel):
     website_name = models.CharField(max_length=150, blank=True, null=True, verbose_name='Website Name')
-    light_logo = models.ImageField(upload_to='settingapp/theme/', verbose_name='Light Logo', help_text='Recommended image size is 40px x 40px (Allowed size is 1MB)')
-    favicon = models.ImageField(upload_to='settingapp/theme/', help_text='Recommended image size is 16px x 16px (Allowed size is 1MB)')
+    light_logo = models.ImageField(upload_to='settingapp/theme/', verbose_name='Light Logo',
+                                   help_text='Recommended image size is 40px x 40px (Allowed size is 1MB)')
+    favicon = models.ImageField(upload_to='settingapp/theme/',
+                                help_text='Recommended image size is 16px x 16px (Allowed size is 1MB)')
 
     class Meta:
         verbose_name_plural = 'ThemeSettings'
@@ -81,7 +83,8 @@ class ThemeSetting(BaseModel):
 
 class InvoiceSetting(BaseModel):
     invoice_prefix = models.CharField(max_length=50, blank=True, null=True, verbose_name='Invoice Prefix')
-    invoice_logo = models.ImageField(upload_to='settingapp/invoice/', verbose_name='Invoice Logo', height_field='Recommended image size is 200px x 40px (Allowed size is 50MB)')
+    invoice_logo = models.ImageField(upload_to='settingapp/invoice/', verbose_name='Invoice Logo',
+                                     height_field='Recommended image size is 200px x 40px (Allowed size is 50MB)')
 
     class Meta:
         verbose_name_plural = 'InvoiceSettings'
@@ -100,7 +103,8 @@ class InvoiceSetting(BaseModel):
 class Slider(BaseModel):
     title = models.CharField(max_length=100, blank=False, null=False)
     caption = models.CharField(max_length=250, default='', blank=False, null=False)
-    photo_url = models.ImageField(upload_to='settingapp/sliders/%Y-%m-%d/', verbose_name='Photo URL', help_text='Allowed size is 500MB', blank=False, null=False)
+    photo_url = models.ImageField(upload_to='settingapp/sliders/%Y-%m-%d/', verbose_name='Photo URL',
+                                  help_text='Allowed size is 500MB', blank=False, null=False)
 
     def get_caption(self):
         return self.caption[:30]
@@ -119,7 +123,8 @@ class Slider(BaseModel):
 class Notification(BaseModel):
     title = models.CharField(max_length=150)
     device = models.CharField(choices=DEVICE_CHOICES, max_length=10, default='All')
-    photo_url = models.ImageField(upload_to='settingapp/notifications/%Y-%m-%d/', verbose_name='Photo URL', help_text='Allowed size is 500MB', blank=False, null=False)
+    photo_url = models.ImageField(upload_to='settingapp/notifications/%Y-%m-%d/', verbose_name='Photo URL',
+                                  help_text='Allowed size is 500MB', blank=False, null=False)
     message = models.TextField()
 
     def __str__(self):

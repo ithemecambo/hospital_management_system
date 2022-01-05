@@ -91,6 +91,9 @@ class Medicine(BaseModel):
     def __str__(self):
         return f'{self.medicine_name} {self.manufacturer}'
 
+    def product_name(self):
+        return f'{self.medicine_name} {self.manufacturer}'
+
     def stock_price(self):
         return f'${self.manufacturer_price}'
 

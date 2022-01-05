@@ -227,7 +227,7 @@
                         <h4 class="page-title">Blood Types</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-blood-type.html" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Blood Type</a>
+                        <a href="{% url 'add-blood-type' %}" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Blood Type</a>
                     </div>
                 </div>
                 <div class="row">
@@ -244,21 +244,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for bld in bloodTypes %}
                                     <tr>
-                                        <td>1</td>
-                                        <td>A+</td>
-                                        <td>10 bags</td>
-                                        <td><i id="status-action" class="fa fa-circle"></i></td>
+                                        <td>{{ bld.id }}</td>
+                                        <td>{{ bld.blood}}</td>
+                                        <td>{{ bld.bag_group }}</td>
+                                        {% if bld.status %}
+                                            <td><i id="status-yes" class="fa fa-circle"></i></td>
+                                        {% else %}
+                                            <td><i id="status-no" class="fa fa-times-circle"></i></td>
+                                        {% endif %}
                                         <td class="text-right">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_blood_type"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                    <a class="dropdown-item" href="{% url 'update-blood-type' bld.id %}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                       data-id="{% url 'delete-blood-type' bld.id %}"
+                                                       onclick="deleteBlood(this)"
+                                                       data-target="#delete_blood_type"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -273,7 +282,7 @@
                         <img src="../../../static/admin/img/sent.png" alt="" width="50" height="46">
                         <h3>Are you sure want to delete this Blood Type?</h3>
                         <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">No</a>
-                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a href="" id="delete_id" class="btn btn-danger">Yes</a>
                         </div>
                     </div>
                 </div>
@@ -291,6 +300,10 @@
     <script src="../../../static/admin/js/moment.min.js"></script>
     <script src="../../../static/admin/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../static/admin/js/app.js"></script>
-
+    <script>
+        function deleteBlood(param) {
+            $('#delete_id').attr('href', $(param).data('id'));
+        }
+    </script>
 </body>
 </html>

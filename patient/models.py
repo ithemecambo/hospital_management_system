@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.utils.safestring import mark_safe
 
@@ -66,6 +67,13 @@ class Patient(BaseModel):
 
     def display_blood(self):
         return f'{self.blood.blood}'
+
+    def get_patient_age(self):
+        # age = datetime.date.today() - self.dob
+        # return int((age).day/365.25)
+        today = date.today()
+        age = today.year - self.dob.year - ((today.month, today.day) < (self.dob.month, self.dob.day))
+        return age
 
     def profile(self):
         if self.photo_url:

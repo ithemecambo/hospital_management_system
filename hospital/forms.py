@@ -97,3 +97,15 @@ class DoctorUpdateForm(forms.ModelForm):
         model = Doctor
         fields = ['name', 'gender', 'dob', 'nationality', 'phone', 'email', 'address', 'speciality',
                   'language', 'department', 'photo_url', 'twitter', 'facebook', 'instagram', 'bio', 'status']
+
+
+class DoctorScheduleCreateForm(forms.ModelForm):
+    class Meta:
+        model = Schedule
+        fields = ['doctor', 'available_days', 'start_time', 'end_time', 'description']
+
+
+class DoctorScheduleUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Schedule
+        fields = ['doctor', 'available_days', 'start_time', 'end_time', 'status', 'description']

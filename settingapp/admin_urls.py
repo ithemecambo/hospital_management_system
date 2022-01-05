@@ -1,6 +1,8 @@
 from django.urls import path
 from .admin_views import (
     CompanySettingsView,
+    add_company_setting,
+    update_company_setting,
     LocalizationSettingsView,
     ThemeSettingsView,
     RolePermissionSettingsView,
@@ -16,6 +18,8 @@ from .admin_views import (
 
 urlpatterns = [
     path('company-settings/', CompanySettingsView.as_view(), name='company-settings'),
+    path('add-company-settings/', add_company_setting, name='add-company-settings'),
+    path('update-company-settings/<int:pk>', update_company_setting, name='update-company-settings'),
     path('localization-settings/', LocalizationSettingsView.as_view(), name='localization-settings'),
     path('theme-settings/', ThemeSettingsView.as_view(), name='theme-settings'),
     path('roles-permission-settings/', RolePermissionSettingsView.as_view(), name='roles-permission-settings'),

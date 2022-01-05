@@ -224,10 +224,10 @@
             <div class="content">
                 <div class="row">
                     <div class="col-sm-4 col-3">
-                        <h4 class="page-title">Menufacturers</h4>
+                        <h4 class="page-title">Manufacturers</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-menufacturer.html" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Menufacturer</a>
+                        <a href="{% url 'add-manufacturer' %}" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Manufacturer</a>
                     </div>
                 </div>
                 <div class="row">
@@ -246,23 +246,32 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for manu in manufacturers %}
                                     <tr>
-                                        <td>1</td>
-                                        <td>Medicure Inc.</td>
-                                        <td>(888) 435-2220</td>
-                                        <td>49 Napoleon Court, Suite 2, Somerset, New Jersey 08873</td>
-                                        <td>0.0</td>
-                                        <td><i id="status-action" class="fa fa-circle"></i></td>
+                                        <td>{{ manu.id }}</td>
+                                        <td>{{ manu.name }}</td>
+                                        <td>{{ manu.phone }}</td>
+                                        <td>{{ manu.address }}</td>
+                                        <td>{{ manu.balance }}</td>
+                                        {% if manu.status %}
+                                            <td><i id="status-yes" class="fa fa-check-circle"></i></td>
+                                        {% else %}
+                                            <td><i id="status-no" class="fa fa-times-circle"></i></td>
+                                        {% endif %}
                                         <td class="text-right">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_menufacturer"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                    <a class="dropdown-item" href="{% url 'update-manufacturer' manu.id %}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                       data-id="{% url 'delete-manufacturer' manu.id %}"
+                                                       onclick="deleteManufacturer(this)"
+                                                       data-target="#delete_menufacturer"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -275,9 +284,9 @@
                 <div class="modal-content">
                     <div class="modal-body text-center">
                         <img src="../../../static/admin/img/sent.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to delete this Menufacturer?</h3>
+                        <h3>Are you sure want to delete this Manufacturer?</h3>
                         <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">No</a>
-                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a href="" id="delete_id" class="btn btn-danger">Yes</a>
                         </div>
                     </div>
                 </div>
@@ -295,6 +304,10 @@
     <script src="../../../static/admin/js/moment.min.js"></script>
     <script src="../../../static/admin/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../static/admin/js/app.js"></script>
-
+    <script>
+        function deleteManufacturer(param) {
+            $('#delete_id').attr('href', $(param).data('id'));
+        }
+    </script>
 </body>
 </html>

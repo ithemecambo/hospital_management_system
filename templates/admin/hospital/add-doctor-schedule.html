@@ -1,7 +1,6 @@
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
-
-
 
 <head>
     <meta charset="utf-8">
@@ -315,15 +314,14 @@
     <script src="../../../static/admin/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../static/admin/js/app.js"></script>
     <script>
-            $(function () {
-                $('#datetimepicker3').datetimepicker({
-                    format: 'LT'
-                });
-                $('#datetimepicker4').datetimepicker({
-                    format: 'LT'
-                });
+        $(function () {
+            $('#datetimepicker3').datetimepicker({
+                format: 'LT'
             });
-     </script>
-
+            $('#datetimepicker4').datetimepicker({
+                format: 'LT'
+            });
+        });
+    </script>
 </body>
 </html>

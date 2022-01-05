@@ -227,7 +227,7 @@
                         <h4 class="page-title">Appointments</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-appointment.html" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Appointment</a>
+                        <a href="{% url 'add-appointment' %}" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Appointment</a>
                     </div>
                 </div>
                 <div class="row">
@@ -236,11 +236,11 @@
                             <table class="table table-border table-striped custom-table datatable mb-0">
                                 <thead>
                                     <tr>
-                                        <th>Appointment ID</th>
                                         <th>Patient Name</th>
                                         <th>Age</th>
                                         <th>Doctor Name</th>
                                         <th>Department</th>
+                                        <th>Shift</th>
                                         <th>Appointment Date</th>
                                         <th>Appointment Time</th>
                                         <th>Status</th>
@@ -248,44 +248,43 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {% for app in appointments %}
                                     <tr>
-                                        <td>APT0001</td>
-                                        <td><img width="28" height="28" src="../../../static/admin/img/user.jpg" class="rounded-circle m-r-5" alt=""> Denise Stevens</td>
-                                        <td>35</td>
-                                        <td>Henry Daniels</td>
-                                        <td>Cardiology</td>
-                                        <td>30 Dec 2018</td>
-                                        <td>10:00am - 11:00am</td>
-                                        <td><span class="custom-badge status-red">Inactive</span></td>
+                                        {% if app.patient_profile != '' %}
+                                            <td><img width="28" height="28" src="../../../static/admin/img/user.jpg" class="rounded-circle m-r-5" alt="">
+                                                {{ app.patient }}</td>
+                                        {% else %}
+                                            <td><img width="28" height="28" src="../../../static/admin/img/user.jpg" class="rounded-circle m-r-5" alt=""> Denise Stevens</td>
+                                        {% endif %}
+                                        <td>{{ app.patient.get_patient_age }}</td>
+                                        <td>{{ app.doctor }}</td>
+                                        <td>{{ app.doctor.department.all|join:", " }}</td>
+                                        <td>{{ app.get_shift_display }}</td>
+                                        <td>{{ app.date }}</td>
+                                        <td>{{ app.time }}</td>
+                                        {% if app.status == 'PD' %}
+                                            <td><span class="custom-badge status-orange">Pending</span></td>
+                                        {% elif app.status == 'CF' %}
+                                            <td><span class="custom-badge status-green">Confirmed</span></td>
+                                        {% elif app.status == 'CC' %}
+                                            <td><span class="custom-badge status-red">Cancelled</span></td>
+                                        {% else %}
+                                            <td><span class="custom-badge status-orange">Pending</span></td>
+                                        {% endif %}
                                         <td class="text-right">
                                             <div class="dropdown dropdown-action">
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                    <a class="dropdown-item" href="{% url 'update-appointment' app.id %}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                       data-id="{% url 'delete-appointment' app.id %}"
+                                                       onclick="deleteAppointment(this)"
+                                                       data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>APT0002</td>
-                                        <td><img width="28" height="28" src="../../../static/admin/img/user.jpg" class="rounded-circle m-r-5" alt=""> Denise Stevens</td>
-                                        <td>35</td>
-                                        <td>Henry Daniels</td>
-                                        <td>Cardiology</td>
-                                        <td>30 Dec 2018</td>
-                                        <td>10:00am - 11:00am</td>
-                                        <td><span class="custom-badge status-green">Active</span></td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="#"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_appointment"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -300,7 +299,7 @@
                         <img src="../../../static/admin/img/sent.png" alt="" width="50" height="46">
                         <h3>Are you sure want to delete this Appointment?</h3>
                         <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">No</a>
-                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a href="" id="delete_id" class="btn btn-danger">Yes</a>
                         </div>
                     </div>
                 </div>
@@ -318,6 +317,10 @@
     <script src="../../../static/admin/js/moment.min.js"></script>
     <script src="../../../static/admin/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../static/admin/js/app.js"></script>
-
+    <script>
+        function deleteAppointment(param) {
+            console.log(param);
+        }
+    </script>
 </body>
 </html>

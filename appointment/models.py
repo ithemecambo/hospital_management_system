@@ -28,10 +28,13 @@ class Appointment(BaseModel):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name='appointments')
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='appointments')
     date = models.DateField(default=timezone.now)
-    shift = models.CharField(choices=SHIFT_CHOICES, max_length=10)
+    shift = models.CharField(choices=SHIFT_CHOICES, max_length=15)
     time = models.TimeField(default=timezone.now)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=2, default='Pending')
+    status = models.CharField(choices=STATUS_CHOICES, max_length=15, default='Pending')
     note = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f'{self.patient.name}-{self.doctor.name}'
+
+    def patient_profile(self):
+        return f'{self.patient.photo_url}'

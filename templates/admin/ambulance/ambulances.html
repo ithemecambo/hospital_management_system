@@ -253,7 +253,11 @@
                                     {% for ambulance in ambulances %}
                                     <tr>
                                         <td>{{ ambulance.vehicle_number }}</td>
-                                        <td><img width="65" src="{{ ambulance.photo_url.url }}" alt=""></td>
+                                        {% if ambulance.photo_url != '' %}
+                                            <td><img width="65" src="{{ ambulance.photo_url.url }}" alt=""></td>
+                                        {% else %}
+                                            <td></td>
+                                        {% endif %}
                                         <td>{{ ambulance.vehicle }}</td>
                                         <td>{{ ambulance.driver_name }}</td>
                                         <td>{{ ambulance.driver_contact }}</td>
@@ -273,7 +277,10 @@
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <a class="dropdown-item" href="{% url 'update-ambulance' ambulance.id %}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_ambulance"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal"
+                                                       onclick="deleteAmbulance(this)"
+                                                       data-id="{% url 'delete-ambulance' ambulance.id %}"
+                                                       data-target="#delete_ambulance"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -293,7 +300,7 @@
                         <img src="../../../static/admin/img/sent.png" alt="" width="50" height="46">
                         <h3>Are you sure want to delete this Ambulance?</h3>
                         <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">No</a>
-                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a href="#" id="delete_id" class="btn btn-danger">Yes</a>
                         </div>
                     </div>
                 </div>
@@ -311,6 +318,11 @@
     <script src="../../../static/admin/js/moment.min.js"></script>
     <script src="../../../static/admin/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../static/admin/js/app.js"></script>
+    <script>
+        function deleteAmbulance(param) {
+            $('#delete_id').attr('href', $(param).data('id'));
+        }
+    </script>
 
 </body>
 </html>

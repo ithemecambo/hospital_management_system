@@ -43,6 +43,42 @@ class DepartmentView(ListView):
     queryset = Department.objects.all()
 
 
+def add_department(request):
+    form = DepartmentCreateForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Department Saved Success')
+        return redirect('../departments')
+    context = {
+        'title': 'Add Department',
+        'form': form
+    }
+    return render(request, 'admin/department/add-department.html', context)
+
+
+def update_department(request, pk):
+    queryset = Department.objects.get(id=pk)
+    form = DepartmentUpdateForm(instance=queryset)
+    if request.method == 'POST':
+        form = DepartmentUpdateForm(request.POST, request.FILES, instance=queryset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Department Updated Success')
+            return redirect('../departments')
+    context = {
+        'title': 'Update Department',
+        'form': form
+    }
+    return render(request, 'admin/department/add-department.html', context)
+
+
+def delete_department(request, pk):
+    queryset = Department.objects.get(id=pk)
+    queryset.delete()
+    messages.success(request, 'Department Deleted Success')
+    return redirect('../departments')
+
+
 class AmbulanceView(ListView):
     model = Ambulance
     template_name = 'admin/ambulance/ambulances.html'
@@ -108,10 +144,82 @@ class DoctorView(ListView):
     queryset = Doctor.objects.all()
 
 
+def add_doctor(request):
+    form = DoctorCreateForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Doctor Saved Success')
+        return redirect('../doctors')
+    context = {
+        'title': 'Add Doctor',
+        'form': form
+    }
+    return render(request, 'admin/doctor/add-doctor.html', context)
+
+
+def update_doctor(request, pk):
+    queryset = Doctor.objects.get(id=pk)
+    form = DoctorUpdateForm(instance=queryset)
+    if request.method == 'POST':
+        form = DoctorUpdateForm(request.POST, request.FILES, instance=queryset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Doctor Updated Success')
+            return redirect('../doctors')
+    context = {
+        'title': 'Update Doctor',
+        'form': form
+    }
+    return render(request, 'admin/doctor/add-doctor.html', context)
+
+
+def delete_doctor(request, pk):
+    queryset = Doctor.objects.get(id=pk)
+    queryset.delete()
+    messages.success(request, 'Doctor Deleted Success')
+    return redirect('../doctors')
+
+
 class DoctorScheduleView(ListView):
     template_name = 'admin/hospital/doctor-schedule.html'
     context_object_name = 'schedules'
     queryset = Schedule.objects.all()
+
+
+def add_schedule(request):
+    form = DoctorScheduleCreateForm(request.POST)
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Schedule Saved Success')
+        return redirect('../doctor-schedules')
+    context = {
+        'title': 'Add Schedule',
+        'form': form
+    }
+    return render(request, 'admin/hospital/add-doctor-schedule.html', context)
+
+
+def update_schedule(request, pk):
+    queryset = Schedule.objects.get(id=pk)
+    form = DoctorScheduleUpdateForm(instance=queryset)
+    if request.method == 'POST':
+        form = DoctorScheduleUpdateForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Schedule Updated Success')
+            return redirect('../doctor-schedules')
+    context = {
+        'title': 'Update Schedule',
+        'form': form
+    }
+    return render(request, 'admin/hospital/add-doctor-schedule.html', context)
+
+
+def delete_schedule(request, pk):
+    queryset = Schedule.objects.get(id=pk)
+    queryset.delete()
+    messages.success(request, 'Schedule Deleted Success')
+    return redirect('../doctor-schedules')
 
 
 class LanguageView(ListView):
@@ -175,3 +283,37 @@ class SpecialityView(ListView):
     context_object_name = 'specialities'
     queryset = Speciality.objects.all()
 
+
+def add_speciality(request):
+    form = SpecialityCreateForm(request.POST)
+    if form.is_valid():
+        form.save()
+        return redirect('../specialities')
+    context = {
+        'title': 'Add Speciality',
+        'form': form
+    }
+    return render(request, 'admin/hospital/add-speciality.html', context)
+
+
+def update_speciality(request, pk):
+    queryset = Speciality.objects.get(id=pk)
+    form = SpecialityUpdateForm(instance=queryset)
+    if request.method == 'POST':
+        form = SpecialityUpdateForm(request.POST, instance=queryset)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Speciality Updated Success')
+            return redirect('../specialities')
+    context = {
+        'title': 'Update Speciality',
+        'form': form
+    }
+    return render(request, 'admin/hospital/add-speciality.html', context)
+
+
+def delete_speciality(request, pk):
+    queryset = Speciality.objects.get(id=pk)
+    queryset.delete()
+    messages.success(request, 'Speciality Deleted Success')
+    return redirect('../specialities')

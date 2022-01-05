@@ -229,7 +229,7 @@
                         <h4 class="page-title">Doctors</h4>
                     </div>
                     <div class="col-sm-8 col-9 text-right m-b-20">
-                        <a href="add-doctor.html" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
+                        <a href="{% url 'add-doctor' %}" class="btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Add Doctor</a>
                     </div>
                 </div>
                 <div class="row doctor-grid">
@@ -478,7 +478,7 @@
                         <img src="../../../static/admin/img/sent.png" alt="" width="50" height="46">
                         <h3>Are you sure want to delete this Doctor?</h3>
                         <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">No</a>
-                            <button type="submit" class="btn btn-danger">Yes</button>
+                            <a href="#" id="delete_id" class="btn btn-danger">Yes</a>
                         </div>
                     </div>
                 </div>
@@ -496,6 +496,10 @@
     <script src="../../../static/admin/js/moment.min.js"></script>
     <script src="../../../static/admin/js/bootstrap-datetimepicker.min.js"></script>
     <script src="../../../static/admin/js/app.js"></script>
-
+    <script>
+        function deleteDoctor(param) {
+            console.log(param);
+        }
+    </script>
 </body>
 </html>
