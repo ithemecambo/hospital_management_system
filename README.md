@@ -45,9 +45,11 @@ $ https://github.com/ithemecambo/hospital_management_system.git
 $ cd hospital_management_system
 $
 - # Virtualenv modules installation (Unix based systems)
+```sh
 $ virtualenv env
 $ source env/bin/activate
-$
+```
+
 - # Virtualenv modules installation (Windows based systems)
 $ # virtualenv env
 $ # .\env\Scripts\activate
