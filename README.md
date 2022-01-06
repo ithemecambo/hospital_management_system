@@ -38,7 +38,13 @@ RMS - Medical & Hospital is compatible with on all major browsers, iPad, iPhone,
 - MySQL
 
 # Screenshot
-<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/dashboard.png" width="100%"> 
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/dashboard.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/department.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/ambulance.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/patient.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/manufacturer.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/medicine.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/appoitment.png" width="100%">
 
 ## Support this repo
 * Star this repo <img src="#" width="60">
