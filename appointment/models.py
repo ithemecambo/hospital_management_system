@@ -38,3 +38,9 @@ class Appointment(BaseModel):
 
     def patient_profile(self):
         return f'{self.patient.photo_url}'
+
+    def get_first_letter(self):
+        return f'{self.patient.name[:1]}'
+
+    def patient_address(self):
+        return f'{self.patient.address[:10]}'

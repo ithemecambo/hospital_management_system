@@ -105,26 +105,26 @@
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                         <span class="user-img">
-                            <img class="rounded-circle" src="../../../static/admin/img/user.jpg" width="24" alt="Admin">
-                            <span class="status online"></span>
-                        </span>
-                        <span>Admin</span>
+							<img class="rounded-circle" src="../../../static/admin/img/alex_profile.jpg" width="24" height="24" alt="Admin">
+							<span class="status online"></span>
+						</span>
+						<span>SENGHORT</span>
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle-o"></i><span style="margin-left: 10px;">My Profile</span></a>
-                        <a class="dropdown-item" href="edit-profile.html"><i class="fa fa-pencil-square-o"></i><span style="margin-left: 10px;">Edit Profile</span></a>
-                        <a class="dropdown-item" href="settings.html"><i class="fa fa-cog"></i><span style="margin-left: 10px;">Settings</span></a>
-                        <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i><span style="margin-left: 10px;">Logout</span></a>
-                    </div>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-user-circle-o"></i><span style="margin-left: 10px;">My Profile</span></a>
+                        <a class="dropdown-item" href="{% url 'edit-profile' %}"><i class="fa fa-pencil-square-o"></i><span style="margin-left: 10px;">Edit Profile</span></a>
+                        <a class="dropdown-item" href="{% url 'company-settings' %}"><i class="fa fa-cog"></i><span style="margin-left: 10px;">Settings</span></a>
+                        <a class="dropdown-item" href="{% url 'login' %}"><i class="fa fa-power-off"></i><span style="margin-left: 10px;">Logout</span></a>
+					</div>
                 </li>
             </ul>
             <div class="dropdown mobile-user-menu float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.html"><i class="fa fa-user-circle-o"></i><span style="margin-left: 10px;">My Profile</span></a>
-                    <a class="dropdown-item" href="edit-profile.html"><i class="fa fa-pencil-square-o"></i><span style="margin-left: 10px;">Edit Profile</span></a>
-                    <a class="dropdown-item" href="settings.html"><i class="fa fa-cog"></i><span style="margin-left: 10px;">Settings</span></a>
-                    <a class="dropdown-item" href="login.html"><i class="fa fa-power-off"></i><span style="margin-left: 10px;">Logout</span></a>
+                    <a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-user-circle-o"></i><span style="margin-left: 10px;">My Profile</span></a>
+                    <a class="dropdown-item" href="{% url 'edit-profile' %}"><i class="fa fa-pencil-square-o"></i><span style="margin-left: 10px;">Edit Profile</span></a>
+                    <a class="dropdown-item" href="{% url 'company-settings' %}"><i class="fa fa-cog"></i><span style="margin-left: 10px;">Settings</span></a>
+                    <a class="dropdown-item" href="{% url 'login' %}"><i class="fa fa-power-off"></i><span style="margin-left: 10px;">Logout</span></a>
                 </div>
             </div>
         </div>

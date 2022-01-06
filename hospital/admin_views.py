@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import *
 
+from account.models import *
 from appointment.models import *
 from hospital.forms import *
 from medicine.models import *
@@ -25,6 +26,10 @@ class HomeView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        context['appointmentLimits'] = Appointment.objects.all().order_by('-created_date')[:5]
+        context['patientLimits'] = Patient.objects.all().order_by('-created_date')[:5]
+        context['doctorLimits'] = Doctor.objects.all().order_by('-created_date')[:6]
 
         context['appointments'] = Appointment.objects.all()
         context['specialities'] = Speciality.objects.all()

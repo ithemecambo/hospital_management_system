@@ -22,7 +22,7 @@
 				<div class="account-box">
                     <form action="http://dreamguys.co.in/preclinic/template/index.html" class="form-signin">
                         <div class="account-logo">
-                            <a href="#"><img src="../../../static/admin/img/logo-dark.png" alt=""></a>
+                            <a href="{% url 'dashboard' %}"><img src="../../../static/admin/img/logo-dark.png" alt=""></a>
                         </div>
                         <div class="form-group">
                             <label>Username</label>
@@ -49,7 +49,7 @@
                             <button class="btn btn-primary account-btn" type="submit">Signup</button>
                         </div>
                         <div class="text-center login-link">
-                            Already have an account? <a href="login.html">Login</a>
+                            Already have an account? <a href="{% url 'login' %}">Login</a>
                         </div>
                     </form>
                 </div>

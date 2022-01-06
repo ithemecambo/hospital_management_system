@@ -10,6 +10,7 @@ from .admin_views import (
     NotificationSettingsView,
     ChangePasswordSettingsView,
 
+    AddStaffView,
     StaffView,
     LeaveView,
     HolidayView,
@@ -26,6 +27,7 @@ urlpatterns = [
     path('invoice-settings/', InvoiceSettingsView.as_view(), name='invoice-settings'),
     path('notification-settings/', NotificationSettingsView.as_view(), name='notification-settings'),
     path('change-password-settings/', ChangePasswordSettingsView.as_view(), name='change-password-settings'),
+    path('add-staff/', AddStaffView.as_view(), name='add-staff'),
     path('staffs/', StaffView.as_view(), name='staffs'),
     path('leaves/', LeaveView.as_view(), name='leaves'),
     path('holidays/', HolidayView.as_view(), name='holidays'),

@@ -27,7 +27,7 @@ urlpatterns = [
     path('settingapp/', include('settingapp.urls')),
     path('appointment/', include('appointment.urls')),
 
-    # path('auth/', include('account.admin_urls')),
+    path('auth/', include('account.admin_urls')),
     path('auth/', include('hospital.admin_urls')),
     path('auth/', include('medicine.admin_urls')),
     path('auth/', include('patient.admin_urls')),

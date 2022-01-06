@@ -62,6 +62,10 @@ class ChangePasswordSettingsView(TemplateView):
     template_name = 'admin/settings/change-password.html'
 
 
+class AddStaffView(TemplateView):
+    template_name = 'admin/staff/add-staff.html'
+
+
 class StaffView(TemplateView):
     template_name = 'admin/staff/staffs.html'
 
