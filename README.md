@@ -7,6 +7,7 @@ RMS - Medical & Hospital is compatible with on all major browsers, iPad, iPhone,
 ## Table of contents
 * [Features](#features)
 * [Technologies](#technologies)
+* [Installation](#installation)
 * [Screenshot](#screenshot)
 * [Support this repo](#support-this-repo)
 * [Social Contact](#social-contact)
@@ -37,6 +38,35 @@ RMS - Medical & Hospital is compatible with on all major browsers, iPad, iPhone,
 - Django Framework
 - MySQL
 
+# Installation
+
+$ # Clone the code
+$ https://github.com/ithemecambo/hospital_management_system.git
+$ cd hospital_management_system
+$
+$ # Virtualenv modules installation (Unix based systems)
+$ virtualenv env
+$ source env/bin/activate
+$
+$ # Virtualenv modules installation (Windows based systems)
+$ # virtualenv env
+$ # .\env\Scripts\activate
+$
+$ # Install modules
+$ pip install -r requirements.txt
+$
+$ # Create tables
+$ python manage.py makemigrations
+$ python manage.py migrate
+$
+$ # Create app superuser
+$ python manage.py createsuperuser
+$
+$ # Start the application (development mode)
+$ python manage.py runserver # default port 8000
+$
+$ # Access the web app in browser: http://127.0.0.1:8000/
+
 # Screenshot
 <img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/dashboard.png" width="100%">
 <img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/department.png" width="100%">
@@ -44,10 +74,10 @@ RMS - Medical & Hospital is compatible with on all major browsers, iPad, iPhone,
 <img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/patient.png" width="100%">
 <img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/manufacturer.png" width="100%">
 <img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/medicine.png" width="100%">
-<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/appoitment.png" width="100%">
+<img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/appointment.png" width="100%">
 
 ## Support this repo
-* Star this repo <img src="#" width="60">
+* Star this repo <img src="https://github.com/ithemecambo/hospital_management_system/blob/master/screenshot/give-star.png" width="60">
 
 ## Social Contact
 * Skype: kheang.senghort2
