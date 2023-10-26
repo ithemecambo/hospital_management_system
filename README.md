@@ -93,8 +93,8 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 * Skype: kheang.senghort2
 * Facebook: kheang senghort
 * LinkedIn: kheang senghort
-* Telegram: 0189702323
+* Telegram: 775-230-8584
 
 ## Contact Info
 * Email: senghort.rupp@gmail.com
-* Tel: 0189702323/0969863618
+* Tel: 775-230-8584
